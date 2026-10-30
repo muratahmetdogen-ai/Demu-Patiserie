@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Butik Mutfak — Maliyet & Satış</title>
+<title>Demu Patiserie</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -351,7 +351,7 @@ const recImg=n=>(D.recipes.find(r=>r.name==n)||{}).img;
 
 /* ---------- durum ---------- */
 let page='ana',q='',sort='ad',flt='all',fl={from:'',to:''},so={r:'',n:'',m:null};
-const NAV=[['ana','🏠','Ana'],['dolap','🧺','Dolabım'],['tarif','📖','Tarifler'],['siparis','🧾','Sipariş'],['rapor','📊','Rapor'],['ayar','⚙️','Ayarlar']];
+const NAV=[['ana','🏠','Ana Sayfa'],['dolap','🧺','Dolabım'],['tarif','📖','Tarifler'],['siparis','🧾','Siparişler'],['rapor','📊','Rapor'],['ayar','⚙️','Ayarlar']];
 
 /* ---------- tema + emoji zemin ---------- */
 function isDark(){const t=D.settings.theme;return t=='dark'||(t=='system'&&matchMedia('(prefers-color-scheme:dark)').matches)}
@@ -421,7 +421,7 @@ PG.ana=()=>{
   <div class="hero">
     <div class="row">
       <div>
-        <small>${greet}, hoş geldin ✨</small>
+        <small>${greet}, hoş geldiniz ✨</small>
         <h1>${esc(D.settings.name)}</h1>
         <p>${D.ings.length?`Dolabında ${D.ings.length} çeşit malzeme, ${D.recipes.length} tarif seni bekliyor.`:'Hadi ilk alışverişini ekleyip mutfağını kur.'}</p>
       </div>
@@ -435,24 +435,24 @@ PG.ana=()=>{
   </div>
 
   <div class="tiles">
-    <div class="tile hi"><i>🧾</i><small>Açık sipariş</small><b>${act.length}</b></div>
-    <div class="tile"><i>💖</i><small>Bu ay kâr</small><b>${TL(kar)}</b></div>
-    <div class="tile"><i>🧺</i><small>Dolap değeri</small><b>${TL(totVal())}</b></div>
-    <div class="tile"><i>📖</i><small>Tarif sayısı</small><b>${D.recipes.length}</b></div>
+    <div class="tile hi"><i>🧾</i><small>Açık siparişler</small><b>${act.length}</b></div>
+    <div class="tile"><i>💖</i><small>Bu Ay Kâzancın</small><b>${TL(kar)}</b></div>
+    <div class="tile"><i>🧺</i><small>Dolap Değeri</small><b>${TL(totVal())}</b></div>
+    <div class="tile"><i>📖</i><small>Tarif Sayısı</small><b>${D.recipes.length}</b></div>
   </div>
 
   <div class="quick">
-    <button class="qbtn" onclick="catPick()"><em>🛍️</em>Katalogdan ekle</button>
-    <button class="qbtn" onclick="recForm()"><em>📖</em>Yeni tarif</button>
-    <button class="qbtn" onclick="go('siparis')"><em>🧾</em>Sipariş al</button>
-    <button class="qbtn" onclick="go('dolap')"><em>🧺</em>Dolabı gör</button>
-    <button class="qbtn" onclick="buyForm()"><em>🛒</em>Tek ürün ekle</button>
-    <button class="qbtn" onclick="bulkForm()"><em>☰</em>Toplu gir</button>
+    <button class="qbtn" onclick="catPick()"><em>🛍️</em>Katalogdan Ekle</button>
+    <button class="qbtn" onclick="recForm()"><em>📖</em>Yeni Tarif</button>
+    <button class="qbtn" onclick="go('siparis')"><em>🧾</em>Sipariş Al</button>
+    <button class="qbtn" onclick="go('dolap')"><em>🧺</em>Dolabı Gör</button>
+    <button class="qbtn" onclick="buyForm()"><em>🛒</em>Ürün Ekle</button>
+    <button class="qbtn" onclick="bulkForm()"><em>☰</em>Toplu Ürün Ekle</button>
   </div>
 
-  ${low.length?`<div class="warn"><b>🛒 Azalan malzemeler</b>${low.map(i=>esc(i.name)).join(' · ')}</div>`:''}
+  ${low.length?`<div class="warn"><b>🛒 Azalan Malzemeler</b>${low.map(i=>esc(i.name)).join(' · ')}</div>`:''}
 
-  ${D.recipes.length?`<h2>Tariflerin</h2>
+  ${D.recipes.length?`<h2>Tariflerim</h2>
   <div class="chips">${D.recipes.slice(0,6).map(r=>`<button onclick="recQuick('${r.id}')">${emo(r.name)} ${esc(r.name)}</button>`).join('')}</div>`:''}
 
   ${act.length?`<h2>Açık siparişler</h2>${ordList(act.slice(0,3))}`:''}
