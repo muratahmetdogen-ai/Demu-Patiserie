@@ -1,6 +1,6 @@
 // Butik Mutfak — service worker
 // Yeni sürüm yayınlarken CACHE_VERSION değerini artır (v1 -> v2 ...)
-const CACHE_VERSION = 'butik-v4';
+const CACHE_VERSION = 'butik-v4.3';
 const FILES = ['./', 'index.html', 'manifest.json', 'icon.svg', 'icon.png', 'icon-512.png'];
 
 self.addEventListener('install', e => {
