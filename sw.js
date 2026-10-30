@@ -1,5 +1,5 @@
 // Yeni sürüm yayınlarken CACHE_VERSION değerini artır (v1 -> v2 ...)
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const FILES = ['./', 'index.html', 'manifest.json', 'icon.svg'];
 
 self.addEventListener('install', e => {
@@ -17,7 +17,7 @@ self.addEventListener('activate', e => {
 
 // Önce ağ (güncel sürüm gelsin), internet yoksa önbellek
 self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
+  if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
   e.respondWith(
     fetch(e.request)
       .then(res => {
