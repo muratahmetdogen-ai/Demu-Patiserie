@@ -1,13 +1,19 @@
 {
-  "name": "Maliyet ve Satış",
-  "short_name": "Maliyet",
+  "name": "Butik Mutfak — Maliyet ve Satış",
+  "short_name": "Butik Mutfak",
+  "description": "Ev üretimi tatlılar için malzeme maliyeti, satış fiyatı ve sipariş takibi.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#fff5f8",
-  "theme_color": "#d6336c",
+  "background_color": "#fff7fb",
+  "theme_color": "#e83e8c",
   "lang": "tr",
+  "dir": "ltr",
+  "categories": ["food", "business", "productivity"],
   "icons": [
-    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
